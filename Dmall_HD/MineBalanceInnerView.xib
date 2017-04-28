@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MineBalanceInnerView" customModule="Dmall_HD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVK-hW-4Vt">
+                    <rect key="frame" x="10" y="24.5" width="80" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="cmL-uu-Xmr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDT-TM-tdC">
+                    <rect key="frame" x="10" y="49.5" width="80" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="JlG-g2-bp2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="TDT-TM-tdC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="I1d-jY-hVG"/>
+                <constraint firstItem="TDT-TM-tdC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="10" id="VZC-gG-t76"/>
+                <constraint firstItem="IVK-hW-4Vt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-15" id="ajo-r9-uZG"/>
+                <constraint firstAttribute="trailing" secondItem="IVK-hW-4Vt" secondAttribute="trailing" constant="10" id="oeV-Iw-WzV"/>
+                <constraint firstItem="IVK-hW-4Vt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="rcP-tb-M0z"/>
+                <constraint firstAttribute="trailing" secondItem="TDT-TM-tdC" secondAttribute="trailing" constant="10" id="v1B-N0-qBh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="subTitleLabel" destination="TDT-TM-tdC" id="XSy-ev-BqX"/>
+                <outlet property="titleLabel" destination="IVK-hW-4Vt" id="CVy-bp-YAE"/>
+            </connections>
+            <point key="canvasLocation" x="-282" y="-86"/>
+        </view>
+    </objects>
+</document>
