@@ -13,8 +13,6 @@ class BaseResponse: Mappable {
 
     var code : String?
     var result : String?
-    var dataStr : String?
-
 
     required init?(map: Map) {
 
@@ -23,6 +21,5 @@ class BaseResponse: Mappable {
     func mapping(map: Map) {
         code <- map["code"]
         result <- map["result"]
-        dataStr <- map["data"]
     }
 }

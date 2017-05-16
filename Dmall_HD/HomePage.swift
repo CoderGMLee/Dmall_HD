@@ -7,28 +7,12 @@
 //
 
 import UIKit
-
+import Alamofire
 class HomePage: CommonViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.gray
-        networkTest()
     }
 
-    func networkTest() {
-        let request = MineRequest()
-        HttpClient.shared.connectWithRequest(request: request, successHandle: { (responseStr) in
-
-            print(responseStr ?? "success")
-
-        }, failHandle: { (responseStr) in
-
-            print(responseStr ?? "fail")
-
-        }) { (error) in
-
-            print(error.localizedDescription)
-
-        };
-    }
 }

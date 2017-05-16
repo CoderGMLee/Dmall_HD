@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A09D56B1EB322F900D50A4A /* LoginMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A09D56A1EB322F900D50A4A /* LoginMainView.swift */; };
 		8A0C51651E4C6E42001089BA /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0C51641E4C6E42001089BA /* MainController.swift */; };
 		8A0C516A1E4C7966001089BA /* TabbarItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0C51691E4C7966001089BA /* TabbarItemData.swift */; };
 		8A0C516C1E4D6371001089BA /* TabbarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0C516B1E4D6371001089BA /* TabbarData.swift */; };
@@ -144,6 +145,10 @@
 		8A64BC1C1E6802D40012DBF7 /* MineBalanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A64BC1A1E6802D40012DBF7 /* MineBalanceCell.xib */; };
 		8A64BC1E1E68063D0012DBF7 /* MineBalanceInnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A64BC1D1E68063D0012DBF7 /* MineBalanceInnerView.swift */; };
 		8A64BC201E6806460012DBF7 /* MineBalanceInnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A64BC1F1E6806460012DBF7 /* MineBalanceInnerView.xib */; };
+		8A719DF51ECAA97E00C6FF82 /* MineResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A719DF41ECAA97E00C6FF82 /* MineResponse.swift */; };
+		8A719DF71ECAA9A700C6FF82 /* MineMainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A719DF61ECAA9A700C6FF82 /* MineMainData.swift */; };
+		8A719DF91ECACEC500C6FF82 /* MineBottomIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A719DF81ECACEC500C6FF82 /* MineBottomIcon.swift */; };
+		8A719DFB1ECACFEB00C6FF82 /* MineActivityIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A719DFA1ECACFEB00C6FF82 /* MineActivityIcon.swift */; };
 		8AEFFF0C1E2F64AB004C936D /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFFF0B1E2F64AB004C936D /* BaseRequest.swift */; };
 		8AEFFF121E30A035004C936D /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A48104C1E2F4D9900CBA473 /* HttpClient.swift */; };
 		A555D08854275EF441FA4DF5 /* Pods_Dmall_HD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4175B4BDEDF106053FCE7A5F /* Pods_Dmall_HD.framework */; };
@@ -170,6 +175,7 @@
 		2C4B3F3BEBB8B2697B842F8E /* Pods-Dmall_HD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dmall_HD.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dmall_HD/Pods-Dmall_HD.release.xcconfig"; sourceTree = "<group>"; };
 		2F292E66061673636C17FD7C /* Pods-Dmall_HD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dmall_HD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dmall_HD/Pods-Dmall_HD.debug.xcconfig"; sourceTree = "<group>"; };
 		4175B4BDEDF106053FCE7A5F /* Pods_Dmall_HD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dmall_HD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A09D56A1EB322F900D50A4A /* LoginMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginMainView.swift; sourceTree = "<group>"; };
 		8A0C51621E4C59DE001089BA /* Dmall_HD-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dmall_HD-Bridging-Header.h"; sourceTree = "<group>"; };
 		8A0C51641E4C6E42001089BA /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		8A0C51691E4C7966001089BA /* TabbarItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarItemData.swift; sourceTree = "<group>"; };
@@ -392,6 +398,10 @@
 		8A64BC1A1E6802D40012DBF7 /* MineBalanceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineBalanceCell.xib; sourceTree = "<group>"; };
 		8A64BC1D1E68063D0012DBF7 /* MineBalanceInnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineBalanceInnerView.swift; sourceTree = "<group>"; };
 		8A64BC1F1E6806460012DBF7 /* MineBalanceInnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineBalanceInnerView.xib; sourceTree = "<group>"; };
+		8A719DF41ECAA97E00C6FF82 /* MineResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineResponse.swift; sourceTree = "<group>"; };
+		8A719DF61ECAA9A700C6FF82 /* MineMainData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineMainData.swift; sourceTree = "<group>"; };
+		8A719DF81ECACEC500C6FF82 /* MineBottomIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineBottomIcon.swift; sourceTree = "<group>"; };
+		8A719DFA1ECACFEB00C6FF82 /* MineActivityIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineActivityIcon.swift; sourceTree = "<group>"; };
 		8AEFFF0B1E2F64AB004C936D /* BaseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -684,6 +694,7 @@
 				8A64BC1A1E6802D40012DBF7 /* MineBalanceCell.xib */,
 				8A64BC1D1E68063D0012DBF7 /* MineBalanceInnerView.swift */,
 				8A64BC1F1E6806460012DBF7 /* MineBalanceInnerView.xib */,
+				8A09D56A1EB322F900D50A4A /* LoginMainView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -702,6 +713,10 @@
 			isa = PBXGroup;
 			children = (
 				8A64BC091E66A51E0012DBF7 /* MineRequest.swift */,
+				8A719DF41ECAA97E00C6FF82 /* MineResponse.swift */,
+				8A719DF61ECAA9A700C6FF82 /* MineMainData.swift */,
+				8A719DF81ECACEC500C6FF82 /* MineBottomIcon.swift */,
+				8A719DFA1ECACFEB00C6FF82 /* MineActivityIcon.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1410,6 +1425,7 @@
 				8A64BBFC1E6516F00012DBF7 /* MineMainView.swift in Sources */,
 				8A24BCB31E4B1FD900016286 /* PersonInfoData.swift in Sources */,
 				8A64BBB01E64352C0012DBF7 /* DMMutiProxy.m in Sources */,
+				8A09D56B1EB322F900D50A4A /* LoginMainView.swift in Sources */,
 				8A64BBB41E64352C0012DBF7 /* DMBridgeObject.m in Sources */,
 				8A64BBDD1E64352C0012DBF7 /* UPViewParser.m in Sources */,
 				8A24BC9F1E4B0E4000016286 /* StoreInfo.swift in Sources */,
@@ -1449,6 +1465,7 @@
 				8A517A8F1E51C92A009FA3C9 /* PresaleOrderConfirmVC.swift in Sources */,
 				8A517A911E51C94E009FA3C9 /* WebDetailOfActivity.swift in Sources */,
 				8A517A931E51C95E009FA3C9 /* PresaleMiaoshaOrderconfirmVcViewController.swift in Sources */,
+				8A719DFB1ECACFEB00C6FF82 /* MineActivityIcon.swift in Sources */,
 				8A3E07961E5DABFF009595ED /* Selectable.swift in Sources */,
 				8A64BBD31E64352C0012DBF7 /* DMPullToRefreshView.m in Sources */,
 				8A64BBCE1E64352C0012DBF7 /* DMLayoutParam.m in Sources */,
@@ -1456,6 +1473,7 @@
 				8A64BBD51E64352C0012DBF7 /* UPImageView.m in Sources */,
 				8A64BBD21E64352C0012DBF7 /* DMPassView.m in Sources */,
 				8A24BCAD1E4B1D4600016286 /* ScanType.swift in Sources */,
+				8A719DF71ECAA9A700C6FF82 /* MineMainData.swift in Sources */,
 				8A517A741E51A0DF009FA3C9 /* ItemView.swift in Sources */,
 				8A64BBDF1E64352C0012DBF7 /* FLAnimatedImage.m in Sources */,
 				8A4810191E2F4A0A00CBA473 /* AppDelegate.swift in Sources */,
@@ -1469,6 +1487,7 @@
 				8A64BBC21E64352C0012DBF7 /* DMWebPage.m in Sources */,
 				8A517A861E51AC9F009FA3C9 /* ShopCartPage.swift in Sources */,
 				8A517A881E51ACAB009FA3C9 /* CategoryPage.swift in Sources */,
+				8A719DF91ECACEC500C6FF82 /* MineBottomIcon.swift in Sources */,
 				8A64BBCB1E64352C0012DBF7 /* UPAnimationConfig.m in Sources */,
 				8A64BBC01E64352C0012DBF7 /* DMUrlDecoder.m in Sources */,
 				8A64BBC61E64352C0012DBF7 /* UPBundleLoader.m in Sources */,
@@ -1477,6 +1496,7 @@
 				8A0C517A1E4DA63A001089BA /* CardWebPage.swift in Sources */,
 				8A64BBAE1E64352C0012DBF7 /* DMDateUtil.m in Sources */,
 				8AEFFF0C1E2F64AB004C936D /* BaseRequest.swift in Sources */,
+				8A719DF51ECAA97E00C6FF82 /* MineResponse.swift in Sources */,
 				8A64BBB91E64352C0012DBF7 /* DMPage.m in Sources */,
 				8A64BBC31E64352C0012DBF7 /* DMBytesResponse.m in Sources */,
 				8A3E07981E5E8DD4009595ED /* ItemImageView.swift in Sources */,

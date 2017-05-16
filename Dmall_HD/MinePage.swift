@@ -31,9 +31,7 @@ class MinePage: CommonViewController {
 
 
     //MARK:- Method - private
-
     private func configNav() {
-
         let buttonCenterY = ( UIConfig.navigationBarHei - 20 ) / 2
         func configRightView() {
             let setButton = UIButton(type: .custom)
@@ -58,18 +56,18 @@ class MinePage: CommonViewController {
 
 
     func leftNavButtonAction(button: UIButton) {
-
+        print("设置页面")
     }
 
     func rightNavButtonAction(button: UIButton) {
-
+        print("消息中心页面")
     }
 
 
     private func fetchTabelData () {
         let request = MineRequest()
-        HttpClient.shared.connectWithRequest(request: request, successHandle: { (responseStr) in
-
+        HttpClient.shared.connectWithRequest(request: request, successHandle: { (response : MineResponse) in
+            let data = response.data
         }, failHandle: { (responseStr) in
 
         }) { (error) in

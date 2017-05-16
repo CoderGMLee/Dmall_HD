@@ -31,27 +31,9 @@ enum ResponseCode : String {
     case authCodeExceedMax      = "100204"
 }
 
-//let kResponseCodeSuccess                = "0000"
-//let kResponseCodeLoginExpired           = "0011"
-//let kResponseCodeWareStatusChanged      = "1113"
-//let kResponseCodeShipTimeExpired        = "1114"
-//let kResponseCodeCouponInvalid          = "1119"
-//let kResponseCodeCouponError            = "1131"
-//
-//
-//let kResponseCodePhoneExist             = "103004"
-//let kResponseCodePhoneExistNopassword   = "113004"
-//let kResponseCodeNeedGraphicCode        = "100405"
-//let kResponseCodeInvalidGraphicCode     = "100402"
-//let kResponseCodeErrorGraphCode         = "100403"
-//let kResponseCodeGraphCodeExceedMax     = "100404"
-//let kResponseCodeAuthCodeExceedMax      = "100204"
-
-
 typealias ResultSuccessHandler = (String?) -> ()
 typealias ResultFailureHandler = (String?) -> ()
 typealias ResultErrorHandler = (Error) -> ()
-
 
 class HttpClient: NSObject {
 
@@ -66,7 +48,7 @@ class HttpClient: NSObject {
     }
 
     //MARK:- 请求函数
-    func connectWithRequest(request: Requestable, successHandle: @escaping ResultSuccessHandler, failHandle: @escaping ResultFailureHandler, errorHandle: @escaping ResultErrorHandler) {
+    func connectWithRequest<T : BaseResponse>(request: Requestable, successHandle: @escaping (_ response : T) -> (), failHandle: @escaping ResultFailureHandler, errorHandle: @escaping ResultErrorHandler) {
 
         if request.method == .post {
 
@@ -83,46 +65,47 @@ class HttpClient: NSObject {
     }
 
     //POST
-    private func postRequest(request: Requestable, successHandle: @escaping ResultSuccessHandler, failHandle: @escaping ResultFailureHandler, errorHandle: @escaping ResultErrorHandler) {
+    func postRequest<T : BaseResponse>(request:Requestable, successHandle: @escaping (_ response : T) -> (), failHandle: @escaping ResultFailureHandler, errorHandle: @escaping ResultErrorHandler) {
 
         configRealTimeHeader(request: request);
         let dataRequest = Alamofire.request(request.url, method: .post, parameters: request.customParameters(), encoding: JSONEncoding.default, headers: basicHeader)
 
         printRequest(request: dataRequest)
 
-        dataRequest.responseString { (response) in
-            if let error = response.result.error {
-                errorHandle(error)
-            } else {
-                self.printResponse(response: response)
-                if let responseStr = response.result.value {
-                    let baseResp = BaseResponse(JSONString:responseStr)
-                    if baseResp?.code == ResponseCode.success.rawValue {
-                        successHandle(responseStr)
-                    } else {
-                        failHandle(responseStr)
-                    }
+        dataRequest.responseObject { (response : DataResponse<T>) in
+            let result = response.result
+            switch result {
+            case let .success(resp) :
+                if resp.code == ResponseCode.success.rawValue {
+                    successHandle(resp)
+                } else {
+                    failHandle(resp.result)
                 }
+            case let .failure(error) :
+                errorHandle(error)
             }
         }
     }
 
     //GET
-    private func getRequest(request:Requestable, successHandle: @escaping ResultSuccessHandler, failHandle: @escaping ResultFailureHandler, errorHandle: @escaping ResultErrorHandler) {
+    private func getRequest<T : BaseResponse>(request:Requestable, successHandle: @escaping (_ response : T) -> (), failHandle: @escaping ResultFailureHandler, errorHandle: @escaping ResultErrorHandler) {
 
         configRealTimeHeader(request: request);
         let dataRequest = Alamofire.request(request.url, method: .get, parameters: request.customParameters(), encoding: JSONEncoding.default, headers: basicHeader)
 
         printRequest(request: dataRequest)
 
-        dataRequest.responseString { (response) in
-            if let responseStr = response.result.value {
-                let baseResp = BaseResponse(JSONString:responseStr)
-                if baseResp?.code == ResponseCode.success.rawValue {
-                    successHandle(responseStr)
+        dataRequest.responseObject { (response : DataResponse<T>) in
+            let result = response.result
+            switch result {
+            case let .success(resp) :
+                if resp.code == ResponseCode.success.rawValue {
+                    successHandle(resp)
                 } else {
-                    failHandle(responseStr)
+                    failHandle(resp.result)
                 }
+            case let .failure(error) :
+                errorHandle(error)
             }
         }
     }
@@ -143,7 +126,7 @@ class HttpClient: NSObject {
         }
 
         if let version = version as? String {
-            basicHeader["apiVersion"] = version
+            basicHeader["apiVersion"] = "3.6.0"
             basicHeader["version"] = version
         }
 
@@ -203,9 +186,9 @@ class HttpClient: NSObject {
 
     //MARK:- Log
     func printRequest(request: DataRequest) {
-        print("请求地址:\(request.request?.url)")
-        print("请求头信息:\(request.request?.allHTTPHeaderFields)")
-        print("请求类型:\(request.request?.httpMethod)")
+        print("请求地址:\(String(describing: request.request?.url))")
+        print("请求头信息:\(String(describing: request.request?.allHTTPHeaderFields))")
+        print("请求类型:\(request.request?.httpMethod ?? "nil")")
     }
 
     func printResponse<T>(response: DataResponse<T>) {
