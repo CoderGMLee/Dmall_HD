@@ -17,10 +17,10 @@ class MinePage: CommonViewController {
 
     private var mainView : MineMainView!
     override func viewDidLoad() {
-//        self.hideCustomNavigationBar = true
         super.viewDidLoad()
         configNav()
         self.view.backgroundColor = UIColor.white
+        fetchTabelData()
     }
 
     override func loadView() {
@@ -63,7 +63,6 @@ class MinePage: CommonViewController {
         print("消息中心页面")
     }
 
-
     private func fetchTabelData () {
         let request = MineRequest()
         HttpClient.shared.connectWithRequest(request: request, successHandle: { (response : MineResponse) in
@@ -76,6 +75,7 @@ class MinePage: CommonViewController {
     }
 }
 
+//MARK:- extension
 extension MinePage : MineMainViewDelegate {
     func actionForType(type: MineJumpUrlType) {
         MainController.shared.forward(type.rawValue)

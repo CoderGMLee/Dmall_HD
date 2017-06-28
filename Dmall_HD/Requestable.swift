@@ -17,6 +17,7 @@ protocol Requestable {
     var erpStoreId : String? {get}
     var venderId : String? {get}
     var customParamStr : String? {get}
+    var customParam : [String : String?]? {get}
 
     func customParameters() -> [String : String]?
 }
@@ -47,10 +48,17 @@ extension Requestable {
         return nil
     }
 
+    var customParam : [String : String?]? {
+        return nil
+    }
+
     func customParameters() -> [String : String]? {
         guard customParamStr != nil else {
             return nil
         }
+        print("paramStr : \(customParamStr ?? "字符串为空")")
         return ["param" : customParamStr!]
     }
+
+
 }

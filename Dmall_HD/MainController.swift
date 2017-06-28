@@ -266,7 +266,7 @@ class MainController: DMNibController {
             tabbarItemSrc.removeAll()
         }
 
-        let tab0 = TabbarItemData()
+        var tab0 = TabbarItemData()
         tab0.type = .home
         tab0.name = "首页"
         tab0.showName = true
@@ -278,7 +278,7 @@ class MainController: DMNibController {
         tab0.originUnselectSrc = "icon_tab_home.png"
         tab0.originSelectSrc = "icon_tab_home_active.png"
 
-        let tab1 = TabbarItemData()
+        var tab1 = TabbarItemData()
         tab1.type = .category
         tab1.name = "分类"
         tab1.showName = true
@@ -290,7 +290,7 @@ class MainController: DMNibController {
         tab1.originUnselectSrc = "icon_tab_category.png"
         tab1.originSelectSrc = "icon_tab_category_active.png"
 
-        let tab2 = TabbarItemData()
+        var tab2 = TabbarItemData()
         tab2.type = .shopCart
         tab2.name = "购物车"
         tab2.showName = true
@@ -302,7 +302,7 @@ class MainController: DMNibController {
         tab2.originUnselectSrc = "icon_tab_shopcart.png"
         tab2.originSelectSrc = "icon_tab_shopcart_active.png"
 
-        let tab4 = TabbarItemData()
+        var tab4 = TabbarItemData()
         tab4.type = .mine;
         tab4.name = "我";
         tab4.showName = true;

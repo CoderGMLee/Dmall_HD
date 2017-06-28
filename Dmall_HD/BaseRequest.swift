@@ -12,6 +12,7 @@ import UIKit
 #if PRODUCT
 
     let HOST                = "appapi.dmall.com"
+    let CMSHOST             = "cmsapi.dmall.com"
     let PORT                = ":443"
     let PREFIX              = "/app/"
     let MAINTAINURL         = "https://maintain.dmall.com/maintain/getMaintainStatus"
@@ -23,13 +24,11 @@ import UIKit
     let presaleChanle       = "https://m.dmall.com/presale.html"
     let oldPresaleChanle    = "https://presale.dmall.com/channel.html"
     let DATAREPORTURL       = "https://lg.dmall.com/evt"
-    func URL(path: String) -> String {
-        return "https://" + HOST + PORT + PREFIX + path
-    }
 
 #elseif QA
 
     let HOST                = "testappapi1.dmall.com"
+    let CMSHOST             = "testcmsapi.dmall.com"
     let PORT                = ":80"
     let PREFIX              = "/app/"
     let MAINTAINURL         = "https://testmaintain.dmall.com/maintain/getMaintainStatus"
@@ -41,35 +40,22 @@ import UIKit
     let presaleChanle       = "http://bjm.test.dmall.com:8003/presale.html"
     let oldPresaleChanle    = "http://testpresale.dmall.com/channel.html"
     let DATAREPORTURL       = "http://testlg.dmall.com/evt"
-    func URL(path: String) -> String {
-        return "http://" + HOST + PORT + PREFIX + path
-    }
+
 
 #endif
 
-class BaseRequest: NSObject {
+func URL(path: String) -> String {
+    return "http://" + HOST + PORT + PREFIX + path
+}
+func CMSURL(path: String) -> String {
+    return "http://" + CMSHOST + PORT + PREFIX + path
+}
 
-    //MARK:- Property
-//    var url : String {
-//        return URL(path: path)
-//    }
-//    var path : String?
-//    var method : String?
-//    var timeoutInterval : Double?
-//    var customParamStr : String?
-//    var erpStoreId : String?
-//    var venderId : String?
-//
-//
-//
-//    //MARK:- Method
-//    func customParameters() -> [String : String]? {
-//        if let customParamStr = customParamStr {
-//            return ["param" : customParamStr]
-//        } else  {
-//            return nil
-//        }
-//    }
+class BaseRequest: NSObject{
+
+    var erpStoreId : String?
+    var erpVendorId : String?
+
 }
 
 extension BaseRequest : Requestable {

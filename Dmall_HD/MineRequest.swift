@@ -8,12 +8,12 @@
 
 import UIKit
 
-class MineRequest {
+class MineRequest: BaseRequest {
 
 }
 
-extension MineRequest : Requestable {
-    var path : String {
+extension MineRequest {
+    override var path : String {
         return "myPage/info"
     }
 }

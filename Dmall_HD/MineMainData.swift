@@ -8,7 +8,7 @@
 
 import UIKit
 import ObjectMapper
-class MineMainData: Mappable {
+struct MineMainData: Mappable {
 
     var levelIcon : String?
     var levelName : String?
@@ -19,11 +19,12 @@ class MineMainData: Mappable {
     var level : Int?
     var bottomIcons : [MineBottomIcon]?
     var activityIcon : MineActivityIcon?
-    required init?(map: Map) {
+
+    init?(map: Map) {
 
     }
     
-    func mapping(map: Map) {
+    mutating func mapping(map: Map) {
         levelIcon <- map["levelIcon"]
         levelName <- map["levelName"]
         cardSum <- map["cardSum"]

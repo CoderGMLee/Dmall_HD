@@ -16,7 +16,7 @@
 #import "DMBridgeObject.h"
 #import "DMBridgeHelper.h"
 #import "DMGifView.h"
-
-
+#import "NSString+md5String.h"
+#import "DMUtils.h"
 
 #endif /* Dmall_HD_Bridging_Header_h */

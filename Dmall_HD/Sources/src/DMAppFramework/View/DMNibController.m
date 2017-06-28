@@ -8,7 +8,7 @@
 
 #import "DMNibController.h"
 #import "DMLog.h"
-
+#import "Dmall_HD-Swift.h"
 @implementation DMNibController
 
 DMLOG_DEFINE(DMNibController)
@@ -32,6 +32,12 @@ DMLOG_DEFINE(DMNibController)
 }
 
 - (void) loadView {
+
+    MinePage * minePage = [[MinePage alloc] init];
+    NSString * className = NSStringFromClass([minePage class]);
+    NSLog(@"name : %@",className);
+
+
     NSString* fileName  = [self nibFileName];
     NSArray* nib        = [self loadNibs:fileName bundle:[self nibFileBundle]];
     if (nib == nil || nib.count == 0) {

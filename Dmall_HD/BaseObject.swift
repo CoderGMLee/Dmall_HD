@@ -2,7 +2,7 @@
 //  BaseObject.swift
 //  Dmall_HD
 //
-//  Created by GM on 17/2/8.
+//  Created by GM on 2017/6/1.
 //  Copyright © 2017年 dmall. All rights reserved.
 //
 
@@ -24,4 +24,3 @@ class BaseObject: NSObject, Mappable {
         super.init()
     }
 }
-

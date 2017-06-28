@@ -8,7 +8,7 @@
 
 import UIKit
 import ObjectMapper
-class MineBottomIcon: Mappable {
+struct MineBottomIcon: Mappable {
 
     var action : String?
     var icon : String?
@@ -19,10 +19,10 @@ class MineBottomIcon: Mappable {
     var subtitle : String?
     var title : String?
 
-    required init?(map: Map) {
+    init?(map: Map) {
 
     }
-    func mapping(map: Map) {
+    mutating func mapping(map: Map) {
         action <- map["action"]
         icon <- map["icon"]
         needLogin <- map["needLogin"]

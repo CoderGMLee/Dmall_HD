@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import ObjectMapper
+struct TabbarData : Mappable{
+    /// This function can be used to validate JSON prior to mapping. Return nil to cancel mapping at this point
+    init?(map: Map) {
 
-class TabbarData: BaseObject {
+    }
 
     var venderId : String?
     var erpStoreId : String?
@@ -18,4 +22,15 @@ class TabbarData: BaseObject {
     var titleSelectedColor : String?
     var titleUnselectedColor : String?
     var menuList : [TabbarItemData]?
+
+    mutating func mapping(map: Map) {
+        venderId <- map["venderId"]
+        erpStoreId <- map["erpStoreId"]
+        showBgImg <- map["showBgImg"]
+        bgImgUrl <- map["bgImgUrl"]
+        showSplitLine <- map["showSplitLine"]
+        titleSelectedColor <- map["titleSelectedColor"]
+        titleUnselectedColor <- map["titleUnselectedColor"]
+        menuList <- map["menuList"]
+    }
 }

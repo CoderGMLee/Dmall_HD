@@ -34,7 +34,7 @@ extension UIColor {
         let red = Float((hex & 0xFF0000) >> 16) / Float(255.0)
         let green = Float((hex & 0x00FF00) >> 8) / Float(255.0)
         let blue = Float((hex & 0x0000FF)) / Float(255.0)
-        return color(withR: red, withG: green, withB: blue)
+        return UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
     }
 
     static let appTextColor = UIColor.colorWithString(string: "0x666666")
@@ -52,5 +52,6 @@ extension UIColor {
     static let app30RecommedTitleColor = UIColor.colorWithString(string: "0x999999")
 
     static let app20TextBlackColor = UIColor.colorWithString(string: "0x36383f")
-    
+
+    static let app20MainColor = UIColor.colorWithString(string: "0xf46c18")
 }

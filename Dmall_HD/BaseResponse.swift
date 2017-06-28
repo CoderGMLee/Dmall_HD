@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class BaseResponse: Mappable {
+class BaseResponse : NSObject, Mappable {
 
     var code : String?
     var result : String?
@@ -21,5 +21,9 @@ class BaseResponse: Mappable {
     func mapping(map: Map) {
         code <- map["code"]
         result <- map["result"]
+    }
+
+    override var description: String {
+        return "code : \(code ?? "code为空") result : \(result ?? "result为空")"
     }
 }

@@ -7,12 +7,12 @@
 //
 
 import UIKit
-
+import ObjectMapper
 enum ItemType {
     case home, category, featured, shopCart, mine
 }
 
-class TabbarItemData: BaseObject {
+struct TabbarItemData : Mappable{
 
     var type : ItemType?
     var showName : Bool?
@@ -24,4 +24,24 @@ class TabbarItemData: BaseObject {
     var selectedImgUrl : String?
     var originUnselectSrc : String?
     var originSelectSrc : String?
+
+    init?(map: Map) {
+
+    }
+    init() {
+
+    }
+
+    mutating func mapping(map: Map) {
+        type <- map["type"]
+        showName <- map["showName"]
+        resource <- map["resource"]
+        name <- map["name"]
+        titleColor <- map["titleColor"]
+        selectTitleColor <- map["selectTitleColor"]
+        unselectedImgUrl <- map["unselectedImgUrl"]
+        selectedImgUrl <- map["selectedImgUrl"]
+        originUnselectSrc <- map["selectedImgUrl"]
+        originSelectSrc <- map["originSelectSrc"]
+    }
 }

@@ -68,7 +68,7 @@ class HttpClient: NSObject {
     func postRequest<T : BaseResponse>(request:Requestable, successHandle: @escaping (_ response : T) -> (), failHandle: @escaping ResultFailureHandler, errorHandle: @escaping ResultErrorHandler) {
 
         configRealTimeHeader(request: request);
-        let dataRequest = Alamofire.request(request.url, method: .post, parameters: request.customParameters(), encoding: JSONEncoding.default, headers: basicHeader)
+        let dataRequest = Alamofire.request(request.url, method: .post, parameters: request.customParameters(), headers: basicHeader)
 
         printRequest(request: dataRequest)
 
@@ -76,6 +76,7 @@ class HttpClient: NSObject {
             let result = response.result
             switch result {
             case let .success(resp) :
+                debugPrint("响应数据:\(resp)")
                 if resp.code == ResponseCode.success.rawValue {
                     successHandle(resp)
                 } else {
@@ -86,7 +87,6 @@ class HttpClient: NSObject {
             }
         }
     }
-
     //GET
     private func getRequest<T : BaseResponse>(request:Requestable, successHandle: @escaping (_ response : T) -> (), failHandle: @escaping ResultFailureHandler, errorHandle: @escaping ResultErrorHandler) {
 
@@ -95,10 +95,15 @@ class HttpClient: NSObject {
 
         printRequest(request: dataRequest)
 
+        dataRequest.responseData { (data) in
+            
+        }
+
         dataRequest.responseObject { (response : DataResponse<T>) in
             let result = response.result
             switch result {
             case let .success(resp) :
+                debugPrint("响应数据:\(resp)")
                 if resp.code == ResponseCode.success.rawValue {
                     successHandle(resp)
                 } else {
@@ -113,12 +118,12 @@ class HttpClient: NSObject {
     //设置请求头
     private func configCommonBasicHeader() {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
-//        let device = 
+        let device = DMUtils.getDeviceName();
         let systemVersion = UIDevice.current.systemVersion
-        let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier");
+        let appName = "com.dmall.dmallmainapp";
         let screenSize = UIScreen.main.bounds.size
-        let screenStr = "\(screenSize.height) + \(screenSize.width)"
-//        let uuid = 
+        let screenStr = "\(screenSize.height)*\(screenSize.width)"
+        let uuid = DMUtils.getOpenUDID()
         let idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
 
         if idfa.characters.count > 0 {
@@ -127,20 +132,18 @@ class HttpClient: NSObject {
 
         if let version = version as? String {
             basicHeader["apiVersion"] = "3.6.0"
-            basicHeader["version"] = version
+            basicHeader["version"] = "3.6.0"
         }
 
         basicHeader["platform"] = "IOS"
         basicHeader["channelId"] = "APPSTORE"
         basicHeader["sysVersion"] = systemVersion
-//        basicHeader["device"] = device
+        basicHeader["device"] = device
         basicHeader["sysVersion"] = systemVersion
-        if let appName = appName as? String {
-            basicHeader["appName"] = appName
-        }
+        basicHeader["appName"] = appName
         basicHeader["screen"] = screenStr
         basicHeader["xyz"] = "ac"
-//        basicHeader["uuid"] = uuid
+        basicHeader["uuid"] = uuid
     }
 
 
@@ -164,8 +167,8 @@ class HttpClient: NSObject {
         }
 
 //        let netType = 
-//        let currentTime = 
-//        let storeGroup = 
+        let currentTime = DMUtils.getTimeNow()
+//        let storeGroup =
 //        let bigDataParaStr = 
         if let isSpeed = UserDefaultManager.shared.isSpeed {
             if isSpeed {
@@ -174,13 +177,16 @@ class HttpClient: NSObject {
                 basicHeader["smartLoading"] = "0"
             }
         }
-        basicHeader["networkType"] = ""
-        basicHeader["currentTime"] = ""
-        basicHeader["lat"] = ""
-        basicHeader["lng"] = ""
+        basicHeader["networkType"] = "3"
+        basicHeader["currentTime"] = currentTime
+        basicHeader["lat"] = "116.320120"
+        basicHeader["lng"] = "39.976739"
         basicHeader["gatewayCache"] = ""
-        basicHeader["storeGroup"] = ""
+        basicHeader["storeGroup"] = "1-218-1;2-218-1"
         basicHeader["bigdata"] = ""
+        basicHeader["storeId"] = "218"
+        basicHeader["verderId"] = "1"
+
     }
 
 
@@ -189,6 +195,7 @@ class HttpClient: NSObject {
         print("请求地址:\(String(describing: request.request?.url))")
         print("请求头信息:\(String(describing: request.request?.allHTTPHeaderFields))")
         print("请求类型:\(request.request?.httpMethod ?? "nil")")
+        print(request.request?.httpBody ?? "")
     }
 
     func printResponse<T>(response: DataResponse<T>) {
